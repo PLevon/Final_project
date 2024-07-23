@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Temperature Anomalies Over Time"
+  navbar:
+    left:
+      - href: Home_page.qmd
+        text: Home
+      - href: Data_Analysis.qmd
+        text: Data Analysis
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
