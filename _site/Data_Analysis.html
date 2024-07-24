@@ -98,6 +98,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data Analysis</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./Source.html"> 
+<span class="menu-text">Source</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -117,7 +121,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#data-story" id="toc-data-story" class="nav-link active" data-scroll-target="#data-story">1. Data Story</a></li>
+  <li><a href="#data-analysis-methods" id="toc-data-analysis-methods" class="nav-link" data-scroll-target="#data-analysis-methods">2. Data Analysis Methods</a></li>
+  <li><a href="#selection-1" id="toc-selection-1" class="nav-link" data-scroll-target="#selection-1">1. Selection</a></li>
+  <li><a href="#exploratory-data-analysis-eda-1" id="toc-exploratory-data-analysis-eda-1" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda-1">2. Exploratory Data Analysis (EDA)</a></li>
+  <li><a href="#data-cleaning-and-manipulations-1" id="toc-data-cleaning-and-manipulations-1" class="nav-link" data-scroll-target="#data-cleaning-and-manipulations-1">3. Data Cleaning and Manipulations</a></li>
+  <li><a href="#visualization-1" id="toc-visualization-1" class="nav-link" data-scroll-target="#visualization-1">4. Visualization</a></li>
+  <li><a href="#conclusions-1" id="toc-conclusions-1" class="nav-link" data-scroll-target="#conclusions-1">5. Conclusions</a></li>
+  <li><a href="#data-analysis-methods-1" id="toc-data-analysis-methods-1" class="nav-link" data-scroll-target="#data-analysis-methods-1">Data Analysis Methods</a></li>
+  <li><a href="#data-story-1" id="toc-data-story-1" class="nav-link" data-scroll-target="#data-story-1">Data Story</a></li>
+  <li><a href="#data-selection" id="toc-data-selection" class="nav-link" data-scroll-target="#data-selection">Data Selection</a></li>
+  <li><a href="#exploratory-data-analysis-eda-2" id="toc-exploratory-data-analysis-eda-2" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda-2">Exploratory Data Analysis (EDA)</a></li>
+  <li><a href="#data-cleaning-and-manipulations-2" id="toc-data-cleaning-and-manipulations-2" class="nav-link" data-scroll-target="#data-cleaning-and-manipulations-2">Data Cleaning and Manipulations</a></li>
+  <li><a href="#visualization-2" id="toc-visualization-2" class="nav-link" data-scroll-target="#visualization-2">Visualization</a></li>
+  <li><a href="#conclusions-2" id="toc-conclusions-2" class="nav-link" data-scroll-target="#conclusions-2">Conclusions</a></li>
   </ul>
 </nav>
     </div>
@@ -149,8 +166,231 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="data-story" class="level3">
+<h3 class="anchored" data-anchor-id="data-story">1. Data Story</h3>
+<p>The code is designed to compare temperature anomalies between the year 2024 and all other years in the dataset. It uses density plots to visualize the distribution of temperature anomalies for these two time periods. By comparing these distributions, you can observe how the temperature anomalies in 2024 differ from the overall historical data.</p>
+</section>
+<section id="data-analysis-methods" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis-methods">2. Data Analysis Methods</h3>
+<section id="selection" class="level4">
+<h4 class="anchored" data-anchor-id="selection"><strong>Selection</strong></h4>
+<ul>
+<li><p><strong>Data Selection:</strong> The dataset used is <code>monthly-temperature-anomalies.csv</code>. It includes a ‘Day’ column for dates and a ‘Temperature.anomaly’ column for temperature anomalies.</p></li>
+<li><p><strong>Time Period Selection:</strong> Data is divided into two groups:</p>
+<ul>
+<li><p><strong>2024:</strong> Data for the year 2024.</p></li>
+<li><p><strong>All Time:</strong> Data for all other years combined.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="exploratory-data-analysis-eda" class="level4">
+<h4 class="anchored" data-anchor-id="exploratory-data-analysis-eda"><strong>Exploratory Data Analysis (EDA)</strong></h4>
+<ul>
+<li><p><strong>Conversion and Extraction:</strong></p>
+<ul>
+<li><p>The ‘Day’ column is converted to a Date type to facilitate time-based operations.</p></li>
+<li><p>The ‘Year’ is extracted from the ‘Day’ to filter the data into two groups (2024 and all other years).</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-cleaning-and-manipulations" class="level4">
+<h4 class="anchored" data-anchor-id="data-cleaning-and-manipulations"><strong>Data Cleaning and Manipulations</strong></h4>
+<ul>
+<li><p><strong>Filtering:</strong></p>
+<ul>
+<li><p><code>data_2024</code> contains only the records from the year 2024.</p></li>
+<li><p><code>data_all_time</code> contains records from all years except 2024.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="visualization" class="level4">
+<h4 class="anchored" data-anchor-id="visualization"><strong>Visualization</strong></h4>
+<ul>
+<li><p><strong>Density Plot Creation:</strong></p>
+<ul>
+<li><p><strong>Density Plot:</strong> A density plot is used to show the distribution of temperature anomalies.</p></li>
+<li><p><strong>Overlaying Density Plots:</strong> Two density plots are overlaid:</p>
+<ul>
+<li><p><strong>All Time:</strong> Distribution of temperature anomalies for all years except 2024.</p></li>
+<li><p><strong>2024:</strong> Distribution of temperature anomalies specifically for the year 2024.</p></li>
+</ul></li>
+<li><p><strong>Color Coding:</strong> Different colors are used to distinguish between the two groups:</p>
+<ul>
+<li><p><strong>Blue:</strong> All Time</p></li>
+<li><p><strong>Red:</strong> 2024</p></li>
+</ul></li>
+<li><p><strong>Legend:</strong> The <code>scale_fill_manual</code> function creates a legend to clarify which color represents which time period.</p></li>
+<li><p><strong>Labels and Theme:</strong> The plot is labeled and styled minimally for clarity.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusions" class="level4">
+<h4 class="anchored" data-anchor-id="conclusions"><strong>Conclusions</strong></h4>
+<ul>
+<li><p><strong>Comparison:</strong> By comparing the density plots, you can identify differences in the distribution of temperature anomalies between the year 2024 and the historical average.</p>
+<ul>
+<li><p>If the density for 2024 shifts significantly compared to the ‘All Time’ distribution, it might indicate unusual temperature patterns in 2024.</p></li>
+<li><p>If the densities overlap significantly, the temperature anomalies in 2024 are consistent with historical trends.</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="selection-1" class="level3">
+<h3 class="anchored" data-anchor-id="selection-1">1. Selection</h3>
+<p><strong>Objective</strong>: The goal is to visualize global temperature anomalies for 2024 using a world map.</p>
+</section>
+<section id="exploratory-data-analysis-eda-1" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis-eda-1">2. Exploratory Data Analysis (EDA)</h3>
+<p><strong>Data Loading</strong>:</p>
+<ul>
+<li><p>Libraries: <code>dplyr</code> for data manipulation, <code>stringr</code> for string operations, <code>ggplot2</code> for visualization, and <code>maps</code> for geographic data.</p></li>
+<li><p>Data is loaded from a CSV file containing monthly temperature anomalies.</p></li>
+</ul>
+<p><strong>Initial Data Inspection</strong>:</p>
+<ul>
+<li><p>Convert the ‘Day’ column to a <code>Date</code> type.</p></li>
+<li><p>Extract the year from the ‘Day’ column for aggregation purposes.</p></li>
+</ul>
+</section>
+<section id="data-cleaning-and-manipulations-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-and-manipulations-1">3. Data Cleaning and Manipulations</h3>
+<p><strong>Data Aggregation</strong>:</p>
+<ul>
+<li><p>Filter data for the year 2024.</p></li>
+<li><p>Group data by region (Entity) and calculate the mean temperature anomaly for each region.</p></li>
+</ul>
+<p><strong>Data Cleaning</strong>:</p>
+<ul>
+<li>Adjust region names to match those in the <code>world</code> map dataset. This involves renaming regions to ensure consistency between datasets.</li>
+</ul>
+<p><strong>Merge Data</strong>:</p>
+<ul>
+<li>Merge the aggregated temperature anomaly data with the world map data based on the region.</li>
+</ul>
+</section>
+<section id="visualization-1" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-1">4. Visualization</h3>
+<p><strong>Map Preparation</strong>:</p>
+<ul>
+<li>Define a clean, minimalistic theme for the map to ensure the focus remains on the data.</li>
+</ul>
+<p><strong>Plotting</strong>:</p>
+<ul>
+<li><p>Use <code>ggplot2</code> to create a world map, plotting temperature anomalies with a color gradient.</p></li>
+<li><p>The map uses the <code>geom_polygon()</code> function to draw the world map and <code>scale_fill_distiller()</code> to apply a color palette representing temperature anomalies.</p></li>
+</ul>
+</section>
+<section id="conclusions-1" class="level3">
+<h3 class="anchored" data-anchor-id="conclusions-1">5. Conclusions</h3>
+<ul>
+<li><strong>Visual Insights</strong>: The final map provides a visual representation of temperature anomalies across different regions of the world for 2024. Colors indicate the magnitude of temperature anomalies, with a diverging color palette highlighting differences from the average temperature.</li>
+</ul>
+<p><strong>Code Summary</strong>:</p>
+<ul>
+<li><p><strong>Libraries</strong>: Loaded necessary libraries for data manipulation, string operations, and visualization.</p></li>
+<li><p><strong>Data Handling</strong>: Data was cleaned, aggregated, and merged with world map data.</p></li>
+<li><p><strong>Plotting</strong>: Generated a world map with a color gradient to represent temperature anomalies.</p></li>
+</ul>
+<p>The plot effectively shows temperature anomalies globally, giving a clear view of how different regions compare in terms of temperature deviations from the norm for 2024.</p>
+<p>4o mini</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="data-analysis-methods-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis-methods-1">Data Analysis Methods</h3>
+<ol type="1">
+<li><p><strong>Loading Libraries</strong>:</p>
+<ul>
+<li><p><code>tidyverse</code>: A collection of R packages for data manipulation and visualization.</p></li>
+<li><p><code>ggplot2</code>: For creating graphics.</p></li>
+<li><p><code>ggiraphExtra</code>: Provides additional ggplot2 features (though not explicitly used in this code).</p></li>
+</ul></li>
+<li><p><strong>Loading Data</strong>:</p>
+<ul>
+<li>The data is loaded from a CSV file located at <code>/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv</code>.</li>
+</ul></li>
+<li><p><strong>Data Aggregation</strong>:</p>
+<ul>
+<li><p>Data is grouped by <code>Entity</code> (likely countries) and the mean temperature anomaly is calculated for each entity using <code>mean(Temperature.anomaly, na.rm = TRUE)</code>.</p></li>
+<li><p>The results are sorted in descending order of the mean temperature anomaly.</p></li>
+</ul></li>
+<li><p><strong>Top 10 Countries Selection</strong>:</p>
+<ul>
+<li>The code selects the top 10 countries with the highest mean temperature anomalies using <code>top_n(10, mean_anomaly)</code>.</li>
+</ul></li>
+<li><p><strong>Visualization</strong>:</p>
+<ul>
+<li>A circular barplot is created to visualize the top 10 countries with the highest temperature anomalies.</li>
+</ul></li>
+</ol>
+</section>
+<section id="data-story-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-story-1">Data Story</h3>
+<p>The analysis aims to identify and visualize the countries with the highest average temperature anomalies. By aggregating the temperature anomaly data per country and focusing on the top 10 countries with the highest mean values, this analysis highlights which countries are experiencing the most significant deviations from average temperatures. The circular barplot provides a clear and engaging visual representation of these top 10 countries.</p>
+</section>
+<section id="data-selection" class="level3">
+<h3 class="anchored" data-anchor-id="data-selection">Data Selection</h3>
+<ul>
+<li><p><strong>Data Source</strong>: Monthly temperature anomalies.</p></li>
+<li><p><strong>Selection Criteria</strong>: Countries are selected based on the mean temperature anomaly. Only the top 10 countries with the highest mean anomalies are considered for the visualization.</p></li>
+</ul>
+</section>
+<section id="exploratory-data-analysis-eda-2" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis-eda-2">Exploratory Data Analysis (EDA)</h3>
+<ul>
+<li>The primary EDA step here involves aggregating data to find the mean temperature anomaly per country and sorting the countries to identify the top performers. This initial exploration helps in understanding which countries have the most significant temperature deviations.</li>
+</ul>
+</section>
+<section id="data-cleaning-and-manipulations-2" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-and-manipulations-2">Data Cleaning and Manipulations</h3>
+<ul>
+<li><p><strong>Missing Values</strong>: <code>na.rm = TRUE</code> is used in the <code>mean()</code> function to handle any missing values in the temperature anomaly data.</p></li>
+<li><p><strong>Aggregation</strong>: Data is aggregated to calculate mean temperature anomalies by country.</p></li>
+</ul>
+</section>
+<section id="visualization-2" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-2">Visualization</h3>
+<ul>
+<li><p><strong>Plot Type</strong>: A circular barplot is chosen to represent the top 10 countries with the highest mean temperature anomalies.</p></li>
+<li><p><strong>Plot Details</strong>:</p>
+<ul>
+<li><p><strong>Bars</strong>: Represent the mean temperature anomaly for each country.</p></li>
+<li><p><strong>Color</strong>: Bars are filled with a “cornflowerblue” color.</p></li>
+<li><p><strong>Coordination</strong>: <code>coord_polar(theta = "x")</code> creates the circular effect.</p></li>
+<li><p><strong>Theme</strong>: <code>theme_minimal()</code> for a clean look, with rotated x-axis text for better readability.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusions-2" class="level3">
+<h3 class="anchored" data-anchor-id="conclusions-2">Conclusions</h3>
+<ul>
+<li>The circular barplot effectively highlights the countries most affected by temperature anomalies, providing a visual emphasis on the top 10 entities. This visualization can be useful for understanding which regions are experiencing the most significant temperature deviations and may help in further analyses or policy discussions related to climate change.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

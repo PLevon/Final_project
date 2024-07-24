@@ -3,6 +3,338 @@ title: "Data Analysis"
 author: "Levon"
 format: html
 editor: visual
+
+execute: 
+  echo: false
 ---
 
-## 
+### 1. Data Story
+
+The code is designed to compare temperature anomalies between the year 2024 and all other years in the dataset. It uses density plots to visualize the distribution of temperature anomalies for these two time periods. By comparing these distributions, you can observe how the temperature anomalies in 2024 differ from the overall historical data.
+
+### 2. Data Analysis Methods
+
+#### **Selection**
+
+-   **Data Selection:** The dataset used is `monthly-temperature-anomalies.csv`. It includes a 'Day' column for dates and a 'Temperature.anomaly' column for temperature anomalies.
+
+-   **Time Period Selection:** Data is divided into two groups:
+
+    -   **2024:** Data for the year 2024.
+
+    -   **All Time:** Data for all other years combined.
+
+#### **Exploratory Data Analysis (EDA)**
+
+-   **Conversion and Extraction:**
+
+    -   The 'Day' column is converted to a Date type to facilitate time-based operations.
+
+    -   The 'Year' is extracted from the 'Day' to filter the data into two groups (2024 and all other years).
+
+#### **Data Cleaning and Manipulations**
+
+-   **Filtering:**
+
+    -   `data_2024` contains only the records from the year 2024.
+
+    -   `data_all_time` contains records from all years except 2024.
+
+#### **Visualization**
+
+-   **Density Plot Creation:**
+
+    -   **Density Plot:** A density plot is used to show the distribution of temperature anomalies.
+
+    -   **Overlaying Density Plots:** Two density plots are overlaid:
+
+        -   **All Time:** Distribution of temperature anomalies for all years except 2024.
+
+        -   **2024:** Distribution of temperature anomalies specifically for the year 2024.
+
+    -   **Color Coding:** Different colors are used to distinguish between the two groups:
+
+        -   **Blue:** All Time
+
+        -   **Red:** 2024
+
+    -   **Legend:** The `scale_fill_manual` function creates a legend to clarify which color represents which time period.
+
+    -   **Labels and Theme:** The plot is labeled and styled minimally for clarity.
+
+#### **Conclusions**
+
+-   **Comparison:** By comparing the density plots, you can identify differences in the distribution of temperature anomalies between the year 2024 and the historical average.
+
+    -   If the density for 2024 shifts significantly compared to the 'All Time' distribution, it might indicate unusual temperature patterns in 2024.
+
+    -   If the densities overlap significantly, the temperature anomalies in 2024 are consistent with historical trends.
+
+```{r}
+#| message: false
+  
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Load the data
+data <- read.csv('/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv')
+
+# Convert the 'Day' column to Date type
+data$Day <- as.Date(data$Day)
+
+# Extract the year from the 'Day' column
+data$Year <- format(data$Day, "%Y")
+
+# Separate the data for 2024 and all other years
+data_2024 <- filter(data, Year == "2024")
+data_all_time <- filter(data, Year != "2024")
+
+# Create the density plot
+ggplot() +
+  geom_density(data = data_all_time, aes(x = Temperature.anomaly, fill = "All Time"), alpha = 0.5) +
+  geom_density(data = data_2024, aes(x = Temperature.anomaly, fill = "2024"), alpha = 0.5) +
+  scale_fill_manual(name = "Time Period", values = c("All Time" = "blue", "2024" = "red")) +
+  labs(title = "Density Plot of Temperature Anomalies",
+       x = "Temperature Anomaly",
+       y = "Density") +
+  theme_minimal()
+
+
+```
+
+### 1. Selection
+
+**Objective**: The goal is to visualize global temperature anomalies for 2024 using a world map.
+
+### 2. Exploratory Data Analysis (EDA)
+
+**Data Loading**:
+
+-   Libraries: `dplyr` for data manipulation, `stringr` for string operations, `ggplot2` for visualization, and `maps` for geographic data.
+
+-   Data is loaded from a CSV file containing monthly temperature anomalies.
+
+**Initial Data Inspection**:
+
+-   Convert the 'Day' column to a `Date` type.
+
+-   Extract the year from the 'Day' column for aggregation purposes.
+
+### 3. Data Cleaning and Manipulations
+
+**Data Aggregation**:
+
+-   Filter data for the year 2024.
+
+-   Group data by region (Entity) and calculate the mean temperature anomaly for each region.
+
+**Data Cleaning**:
+
+-   Adjust region names to match those in the `world` map dataset. This involves renaming regions to ensure consistency between datasets.
+
+**Merge Data**:
+
+-   Merge the aggregated temperature anomaly data with the world map data based on the region.
+
+### 4. Visualization
+
+**Map Preparation**:
+
+-   Define a clean, minimalistic theme for the map to ensure the focus remains on the data.
+
+**Plotting**:
+
+-   Use `ggplot2` to create a world map, plotting temperature anomalies with a color gradient.
+
+-   The map uses the `geom_polygon()` function to draw the world map and `scale_fill_distiller()` to apply a color palette representing temperature anomalies.
+
+### 5. Conclusions
+
+-   **Visual Insights**: The final map provides a visual representation of temperature anomalies across different regions of the world for 2024. Colors indicate the magnitude of temperature anomalies, with a diverging color palette highlighting differences from the average temperature.
+
+**Code Summary**:
+
+-   **Libraries**: Loaded necessary libraries for data manipulation, string operations, and visualization.
+
+-   **Data Handling**: Data was cleaned, aggregated, and merged with world map data.
+
+-   **Plotting**: Generated a world map with a color gradient to represent temperature anomalies.
+
+The plot effectively shows temperature anomalies globally, giving a clear view of how different regions compare in terms of temperature deviations from the norm for 2024.
+
+```{r}
+#| message: false
+
+# Load necessary libraries
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(maps)
+
+# Load world map data
+world <- map_data("world")
+
+
+# Load your dataset
+data <- read.csv('/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv')
+
+# Convert the 'Day' column to Date type
+data$Day <- as.Date(data$Day)
+
+# Extract the year from the 'Day' column
+data$Year <- format(data$Day, "%Y")
+
+# Aggregate data by region and calculate mean temperature anomaly for 2024
+data_2024 <- data %>%
+  filter(Year == "2024") %>%
+  group_by(Entity) %>%
+  summarize(mean_anomaly = mean(`Temperature.anomaly`, na.rm = TRUE))
+
+# Rename columns for consistency with world map data
+world <- world %>%
+  rename(region = region)
+data_2024 <- data_2024 %>%
+  rename(region = Entity)
+
+# Check for disagreements between the two datasets
+diff <- setdiff(world$region, data_2024$region)
+
+# Clean the dataset accordingly
+data_2024 <- data_2024 %>%
+  mutate(region = recode(str_trim(region), 
+                         "United States" = "USA",
+                         "United Kingdom" = "UK",
+                         "Korea, Rep." = "South Korea",
+                         "Congo, Dem. Rep." = "Democratic Republic of the Congo",
+                         "Congo, Rep." = "Republic of Congo")) %>%
+  mutate(region = case_when(region == "Korea, Dem. Rep." ~ "North Korea",
+                            TRUE ~ as.character(region)))
+
+# Merge world map data with temperature anomalies
+world_data <- merge(world, data_2024, by = "region", all.x = TRUE)
+
+# Define a theme for the map
+plain <- theme(
+  axis.text = element_blank(),
+  axis.line = element_blank(),
+  axis.ticks = element_blank(),
+  panel.border = element_blank(),
+  panel.grid = element_blank(),
+  axis.title = element_blank(),
+  panel.background = element_rect(fill = "white"),
+  plot.title = element_text(hjust = 0.5)
+)
+
+# Plot the world map with temperature anomalies
+world_plot <- ggplot(data = world_data, mapping = aes(x = long, y = lat, group = group)) + 
+  coord_fixed(1.3) +
+  geom_polygon(aes(fill = mean_anomaly)) +
+  scale_fill_distiller(palette ="RdBu", direction = -1, na.value = "grey50") + 
+  ggtitle("Global Temperature Anomalies in 2024") +
+  plain
+
+# Print the plot
+print(world_plot)
+
+# Disable scientific notation
+options(scipen = 999)
+```
+
+### Data Analysis Methods
+
+1.  **Loading Libraries**:
+
+    -   `tidyverse`: A collection of R packages for data manipulation and visualization.
+
+    -   `ggplot2`: For creating graphics.
+
+    -   `ggiraphExtra`: Provides additional ggplot2 features (though not explicitly used in this code).
+
+2.  **Loading Data**:
+
+    -   The data is loaded from a CSV file located at `/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv`.
+
+3.  **Data Aggregation**:
+
+    -   Data is grouped by `Entity` (likely countries) and the mean temperature anomaly is calculated for each entity using `mean(Temperature.anomaly, na.rm = TRUE)`.
+
+    -   The results are sorted in descending order of the mean temperature anomaly.
+
+4.  **Top 10 Countries Selection**:
+
+    -   The code selects the top 10 countries with the highest mean temperature anomalies using `top_n(10, mean_anomaly)`.
+
+5.  **Visualization**:
+
+    -   A circular barplot is created to visualize the top 10 countries with the highest temperature anomalies.
+
+### Data Story
+
+The analysis aims to identify and visualize the countries with the highest average temperature anomalies. By aggregating the temperature anomaly data per country and focusing on the top 10 countries with the highest mean values, this analysis highlights which countries are experiencing the most significant deviations from average temperatures. The circular barplot provides a clear and engaging visual representation of these top 10 countries.
+
+### Data Selection
+
+-   **Data Source**: Monthly temperature anomalies.
+
+-   **Selection Criteria**: Countries are selected based on the mean temperature anomaly. Only the top 10 countries with the highest mean anomalies are considered for the visualization.
+
+### Exploratory Data Analysis (EDA)
+
+-   The primary EDA step here involves aggregating data to find the mean temperature anomaly per country and sorting the countries to identify the top performers. This initial exploration helps in understanding which countries have the most significant temperature deviations.
+
+### Data Cleaning and Manipulations
+
+-   **Missing Values**: `na.rm = TRUE` is used in the `mean()` function to handle any missing values in the temperature anomaly data.
+
+-   **Aggregation**: Data is aggregated to calculate mean temperature anomalies by country.
+
+### Visualization
+
+-   **Plot Type**: A circular barplot is chosen to represent the top 10 countries with the highest mean temperature anomalies.
+
+-   **Plot Details**:
+
+    -   **Bars**: Represent the mean temperature anomaly for each country.
+
+    -   **Color**: Bars are filled with a "cornflowerblue" color.
+
+    -   **Coordination**: `coord_polar(theta = "x")` creates the circular effect.
+
+    -   **Theme**: `theme_minimal()` for a clean look, with rotated x-axis text for better readability.
+
+### Conclusions
+
+-   The circular barplot effectively highlights the countries most affected by temperature anomalies, providing a visual emphasis on the top 10 entities. This visualization can be useful for understanding which regions are experiencing the most significant temperature deviations and may help in further analyses or policy discussions related to climate change.
+
+```{r}
+#| message: false
+
+# Load necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(ggiraphExtra)
+
+# Load the data
+data <- read.csv('/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv')
+
+# Aggregate data to find the mean temperature anomaly per country
+agg_data <- data %>%
+  group_by(Entity) %>%
+  summarise(mean_anomaly = mean(Temperature.anomaly, na.rm = TRUE)) %>%
+  arrange(desc(mean_anomaly))
+
+# Select top 10 countries with the highest mean temperature anomalies
+top_countries <- agg_data %>% top_n(10, mean_anomaly)
+
+# Create the circular barplot
+ggplot(top_countries, aes(x = reorder(Entity, -mean_anomaly), y = mean_anomaly)) +
+  geom_bar(stat = "identity", fill = "cornflowerblue") +
+  coord_polar(theta = "x") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Top 10 Countries Influencing Temperature Anomalies",
+       x = "",
+       y = "Mean Temperature Anomaly")
+
+```

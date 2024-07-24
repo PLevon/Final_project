@@ -1,0 +1,55 @@
+---
+title: "Source"
+author: "Levon"
+editor: visual
+---
+
+### Description of Data Source
+
+**Data Origin**:
+
+-   Your data on temperature anomalies over time was obtained from a CSV file located at `/Users/user/Desktop/Final_project/monthly-temperature-anomalies.csv`. The data typically includes temperature anomaly measurements for various locations and time periods.
+
+**Where to Find the Data**:
+
+-   The source of this data may vary, but common repositories for such data include organizations like NASA, NOAA, or the Berkeley Earth Project. Unfortunately, I don’t have a direct link to your specific file, but similar data can often be accessed from these sources:
+
+    -   **NASA GISS**: [NASA Global Surface Temperature Analysis](https://data.giss.nasa.gov/gistemp/)
+
+    -   **NOAA**: NOAA Climate Data Online
+
+    -   **Berkeley Earth**: Berkeley Earth Surface Temperature Data
+
+### Value and Quality of Data
+
+**Value**:
+
+-   **Climate Change Insights**: Temperature anomalies provide a clear indicator of deviations from normal temperature patterns, which is essential for monitoring climate change and understanding its impacts.
+
+-   **Historical Context**: Long-term records of temperature anomalies help in analyzing trends and predicting future climate scenarios.
+
+-   **Decision-Making**: The data supports climate policy, research, and planning by offering empirical evidence of temperature changes.
+
+**Quality**:
+
+-   **Reliable Sources**: Data from reputable organizations like NASA, NOAA, or Berkeley Earth is typically well-maintained and thoroughly vetted.
+
+-   **Consistent Measurements**: Standardized measurement methods and long-term averaging help ensure the accuracy of the anomalies.
+
+### Concerns and Important Notes
+
+**Concerns**:
+
+-   **Data Completeness**: Ensure that your dataset covers a sufficiently long period and includes data from a representative number of locations.
+
+-   **Quality Control**: Check for any missing or anomalous data points that could skew your analysis. Handling missing values and outliers is crucial for accurate analysis.
+
+-   **Baseline Period**: The choice of baseline period (e.g., 1951-1980) can affect the interpretation of anomalies. Be aware of the baseline used in your dataset.
+
+**Important Notes**:
+
+-   **Data Resolution**: The resolution (monthly, annual) can impact the analysis. Monthly data provides finer granularity but might have more noise compared to annual data.
+
+-   **Updates**: Climate data is updated periodically. Ensure that you are using the most recent version of the dataset for current analyses.
+
+By being aware of these aspects, you can better interpret your data and address any potential issues that may arise during your analysis.

@@ -1,1 +1,76 @@
 /* css styles */
+/* style.css */
+
+/* Set a light background color for the body */
+body {
+    background-color: #f0f8ff; /* Alice Blue */
+    color: #333; /* Dark color for text */
+    font-family: Arial, sans-serif;
+}
+
+/* Style for headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #6495ed; /* Cornflower Blue */
+}
+
+/* Style for links */
+a {
+    color: #6495ed; /* Cornflower Blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style for buttons */
+button {
+    background-color: #6495ed; /* Cornflower Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #4169e1; /* Royal Blue */
+}
+
+/* Additional styles for other elements */
+header, footer {
+    background-color: #e6f2ff; /* Light Blue */
+    padding: 20px;
+    
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #ffffff; /* White */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #6495ed; /* Cornflower Blue */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar a:hover {
+    background-color: #4169e1; /* Royal Blue */
+}
+
+.footer {
+    background-color: #f0f8ff; /* Alice Blue */
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}

@@ -9,6 +9,8 @@ website:
         text: Home
       - href: Data_Analysis.qmd
         text: Data Analysis
+      - href: Source.qmd
+        text: Source
       - about.qmd
 
 format:
