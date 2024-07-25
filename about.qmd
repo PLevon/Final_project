@@ -7,3 +7,7 @@ editor: visual
 execute: 
   echo: false
 ---
+
+**Hello, I’m Levon.**
+
+I am currently pursuing my education at Kapan N3 School, where I am immersed in a vibrant learning environment. At Kapan N3, I am constantly inspired to explore new ideas, develop my skills, and contribute to a community of passionate learners. My journey here is marked by a dedication to growth and an eagerness to embrace new challenges. Each day at Kapan N3 enriches my understanding and fuels my ambition for a bright future.

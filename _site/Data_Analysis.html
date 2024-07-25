@@ -135,6 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-cleaning-and-manipulations-2" id="toc-data-cleaning-and-manipulations-2" class="nav-link" data-scroll-target="#data-cleaning-and-manipulations-2">Data Cleaning and Manipulations</a></li>
   <li><a href="#visualization-2" id="toc-visualization-2" class="nav-link" data-scroll-target="#visualization-2">Visualization</a></li>
   <li><a href="#conclusions-2" id="toc-conclusions-2" class="nav-link" data-scroll-target="#conclusions-2">Conclusions</a></li>
+  <li><a href="#final-conclusion" id="toc-final-conclusion" class="nav-link" data-scroll-target="#final-conclusion">Final Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -301,7 +302,6 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Plotting</strong>: Generated a world map with a color gradient to represent temperature anomalies.</p></li>
 </ul>
 <p>The plot effectively shows temperature anomalies globally, giving a clear view of how different regions compare in terms of temperature deviations from the norm for 2024.</p>
-<p>4o mini</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -391,6 +391,26 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="final-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="final-conclusion">Final Conclusion</h3>
+<p>Through a detailed analysis of global temperature anomalies, we have derived several key insights:</p>
+<ol type="1">
+<li><p><strong>Density Plot Analysis</strong>:</p>
+<ul>
+<li>The density plot reveals the distribution of temperature anomalies across different time periods. The year 2024 shows a distinct distribution compared to historical data, with a notable increase in temperature anomalies. This indicates a significant departure from the norm, suggesting an escalation in global warming effects.</li>
+</ul></li>
+<li><p><strong>Geospatial Visualization</strong>:</p>
+<ul>
+<li>The world map of temperature anomalies for 2024 highlights the regions most affected by extreme temperature changes. The map’s color gradient emphasizes areas with the highest mean anomalies, providing a visual representation of the geographic disparity in climate impacts. Countries with severe temperature increases are prominently marked, underscoring regions that may require urgent climate intervention and adaptation strategies.</li>
+</ul></li>
+<li><p><strong>Top Countries with Temperature Anomalies</strong>:</p>
+<ul>
+<li>The circular barplot identifies the top 10 countries experiencing the highest mean temperature anomalies. This visualization underscores the countries most influenced by temperature deviations, drawing attention to those likely facing the greatest challenges related to climate change. The ranking of these countries can inform targeted policy responses and international climate cooperation.</li>
+</ul></li>
+</ol>
+<p>Overall, this comprehensive analysis underscores the urgent need for global efforts to mitigate climate change. By visualizing both spatial and temporal aspects of temperature anomalies, we gain a clearer understanding of the impacts and can better prioritize actions to address these critical issues.</p>
+<hr>
 
 
 </section>
@@ -488,7 +508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/18ffc243-2b46-4576-a844-153a22cc8512\.netlify\.app\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

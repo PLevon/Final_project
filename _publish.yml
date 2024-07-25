@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 18ffc243-2b46-4576-a844-153a22cc8512
+      url: 'https://levon.quarto.pub/temperature-anomalies-over-time'

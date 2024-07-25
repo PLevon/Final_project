@@ -32,8 +32,7 @@ editor:
 
 1.  **Climate Change Monitoring**:
 
-    -   Analyzing temperature anomalies helps in tracking long-term climate change.
-        Rising anomalies over time are indicative of global warming.
+    -   Analyzing temperature anomalies helps in tracking long-term climate change. Rising anomalies over time are indicative of global warming.
 
 2.  **Trend Identification**:
 
